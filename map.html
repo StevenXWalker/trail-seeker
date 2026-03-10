@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trailseeker — Map</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="view-map">
+  <header class="topbar map">
+    <a class="btn ghost" href="index.html">← Back to Results</a>
+    <div class="map-title">Map View</div>
+    <a class="btn ghost" href="my-hikes.html">My Hikes</a>
+  </header>
+
+  <main class="map-layout">
+    <aside class="map-panel">
+      <div class="panel-title">Filters</div>
+      <div class="field">
+        <label>Difficulty
+          <select>
+            <option>Any</option>
+            <option selected>Moderate</option>
+            <option>Hard</option>
+          </select>
+        </label>
+      </div>
+      <div class="field">
+        <label>Length (mi)
+          <div class="range">
+            <input type="number" value="6" />
+            <span>to</span>
+            <input type="number" value="10" />
+          </div>
+        </label>
+      </div>
+      <div class="field">
+        <label>Gain (ft)
+          <div class="range">
+            <input type="number" value="2000" />
+            <span>to</span>
+            <input type="number" value="3000" />
+          </div>
+        </label>
+      </div>
+      <div class="panel-title">Ranking Weights</div>
+      <div class="field">
+        <label>Reports vs Weather
+          <input type="range" min="0" max="100" value="60" />
+        </label>
+        <div class="tiny">Left = reports heavier · Right = weather heavier</div>
+      </div>
+      <div class="field">
+        <label>Filter match
+          <input type="range" min="0" max="100" value="80" />
+        </label>
+      </div>
+      <div class="field">
+        <label>Conditions
+          <input type="range" min="0" max="100" value="70" />
+        </label>
+      </div>
+      <button class="btn primary map-search">Search this area</button>
+    </aside>
+
+    <div class="map-canvas">
+      <div class="marker" style="top: 30%; left: 35%;" data-tooltip="Snow Lake · 7.4 mi · Report 5d · Weather OK · WTA #3" data-link="trail.html">4.7</div>
+      <div class="marker" style="top: 48%; left: 55%;" data-tooltip="Rattlesnake Ledge · 5.2 mi · Report 3d · Weather Dry · WTA #1" data-link="trail.html">4.6</div>
+      <div class="marker" style="top: 62%; left: 42%;" data-tooltip="Granite Mountain · 8.6 mi · Report 6d · Weather OK · WTA #5" data-link="trail.html">4.5</div>
+      <div class="marker" style="top: 40%; left: 68%;" data-tooltip="Kendall Katwalk · 12.2 mi · Report 8d · Weather Mixed · WTA #4" data-link="trail.html">4.6</div>
+      <div class="marker" style="top: 70%; left: 60%;" data-tooltip="Lake 22 · 5.4 mi · Report 2d · Weather Light rain · WTA #2" data-link="trail.html">4.7</div>
+    </div>
+  </main>
+
+  <div class="tooltip" id="mapTooltip"></div>
+  <script src="app.js"></script>
+</body>
+</html>

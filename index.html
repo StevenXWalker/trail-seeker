@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trailseeker — Top Picks</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="view-list">
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">HP</div>
+      <div>
+        <div class="title">Trailseeker</div>
+        <div class="subtitle">Seattle · Default: Next weekend</div>
+      </div>
+    </div>
+    <div class="searchbar">
+      <input type="text" placeholder="Search trails..." aria-label="Search trails" />
+      <button class="btn primary">Search</button>
+    </div>
+    <div class="actions">
+      <button class="btn ghost" id="advancedToggle">Advanced Filters</button>
+      <a class="btn ghost" href="my-hikes.html">My Hikes</a>
+      <a class="btn primary" href="map.html">Map View ▸</a>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="filters">
+      <div class="filter-row">
+        <label>Difficulty
+          <select>
+            <option>Any</option>
+            <option>Easy</option>
+            <option selected>Moderate</option>
+            <option>Hard</option>
+          </select>
+        </label>
+        <label>Length (mi)
+          <div class="range">
+            <input type="number" value="6" />
+            <span>to</span>
+            <input type="number" value="10" />
+          </div>
+        </label>
+        <label>Gain (ft)
+          <div class="range">
+            <input type="number" value="2000" />
+            <span>to</span>
+            <input type="number" value="3000" />
+          </div>
+        </label>
+        <label>Time (hrs)
+          <div class="range">
+            <input type="number" value="4" />
+            <span>to</span>
+            <input type="number" value="7" />
+          </div>
+        </label>
+        <label>Rating
+          <div class="range">
+            <input type="number" value="4" step="0.1" />
+            <span>to</span>
+            <input type="number" value="5" step="0.1" />
+          </div>
+        </label>
+        <label>Traffic
+          <select>
+            <option>Any</option>
+            <option>Low</option>
+            <option selected>Moderate</option>
+            <option>High</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="advanced" id="advancedPanel" hidden>
+        <div class="advanced-grid">
+          <div class="panel">
+            <div class="panel-title">Date Range</div>
+            <div class="chips">
+              <button class="chip active">Next weekend</button>
+              <button class="chip">This weekend</button>
+              <button class="chip">Pick a day</button>
+            </div>
+            <div class="field">
+              <label>Pick day
+                <input type="date" />
+              </label>
+            </div>
+            <div class="field">
+              <label>Pick weekend (Sat start)
+                <input type="date" />
+              </label>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-title">Extras</div>
+            <div class="field">
+              <label>Trail Type
+                <select>
+                  <option>Any</option>
+                  <option>Loop</option>
+                  <option>Out & Back</option>
+                  <option>Point-to-Point</option>
+                </select>
+              </label>
+            </div>
+            <div class="field">
+              <label>Snow Level
+                <select>
+                  <option>Any</option>
+                  <option>Below 3,000 ft</option>
+                  <option>3,000–5,000 ft</option>
+                  <option>Above 5,000 ft</option>
+                </select>
+              </label>
+            </div>
+            <div class="chips">
+              <button class="chip">Dogs OK</button>
+              <button class="chip">Wildflowers</button>
+              <button class="chip">Waterfalls</button>
+              <button class="chip">Lake Views</button>
+            </div>
+            <div class="field">
+              <label>Permit Required
+                <select>
+                  <option>Any</option>
+                  <option>Discover Pass</option>
+                  <option>NW Forest Pass</option>
+                  <option>National Park Pass</option>
+                </select>
+              </label>
+            </div>
+            <div class="field">
+              <label>Road Access
+                <select>
+                  <option>Any</option>
+                  <option selected>Open</option>
+                  <option>Closed</option>
+                  <option>Seasonal</option>
+                </select>
+              </label>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-title">Ranking Weights (App)</div>
+            <div class="field">
+              <label>Report recency vs Weather
+                <input type="range" min="0" max="100" value="60" />
+              </label>
+              <div class="tiny">Left = reports heavier · Right = weather heavier</div>
+            </div>
+            <div class="field">
+              <label>Filter match
+                <input type="range" min="0" max="100" value="80" />
+              </label>
+            </div>
+            <div class="field">
+              <label>Conditions
+                <input type="range" min="0" max="100" value="70" />
+              </label>
+            </div>
+            <div class="field">
+              <label>Ratings
+                <input type="range" min="0" max="100" value="50" />
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="results">
+      <div class="section-header">
+        <h2>Top Picks (Ranked)</h2>
+        <div class="hint">App rank = list order · WTA rank shown on each card · Hover Score for breakdown</div>
+      </div>
+
+      <article class="trail-card">
+        <div class="rank">1</div>
+        <div class="thumb"></div>
+        <div class="trail-main">
+          <div class="trail-title">Snow Lake</div>
+          <div class="trail-meta">★ 4.7 · 7.4 mi · 1,800 ft · Moderate · WTA #3</div>
+          <div class="trail-icons">
+            <span class="tag">🕒 5–6h</span>
+            <span class="tag">🌤 OK</span>
+            <span class="tag">🧊 Snowy</span>
+            <span class="tag">📄 Report 5d</span>
+            <span class="tag">🎫 NW Forest Pass</span>
+          </div>
+        </div>
+        <div class="trail-actions">
+          <button class="btn ghost score" data-score="Filter 92 · Recency 85 · Weather 78 · Conditions 70 · Rating 88">Score ⓘ</button>
+          <a class="btn primary" href="trail.html">Details</a>
+        </div>
+      </article>
+
+      <article class="trail-card">
+        <div class="rank">2</div>
+        <div class="thumb alt"></div>
+        <div class="trail-main">
+          <div class="trail-title">Rattlesnake Ledge</div>
+          <div class="trail-meta">★ 4.6 · 5.2 mi · 1,200 ft · Moderate · WTA #1</div>
+          <div class="trail-icons">
+            <span class="tag">🕒 3–4h</span>
+            <span class="tag">☀ Dry</span>
+            <span class="tag">✅ Good</span>
+            <span class="tag">📄 Report 3d</span>
+            <span class="tag">🎫 Discover Pass</span>
+          </div>
+        </div>
+        <div class="trail-actions">
+          <button class="btn ghost score" data-score="Filter 88 · Recency 90 · Weather 86 · Conditions 92 · Rating 84">Score ⓘ</button>
+          <a class="btn primary" href="trail.html">Details</a>
+        </div>
+      </article>
+
+      <article class="trail-card">
+        <div class="rank">3</div>
+        <div class="thumb third"></div>
+        <div class="trail-main">
+          <div class="trail-title">Granite Mountain</div>
+          <div class="trail-meta">★ 4.5 · 8.6 mi · 3,800 ft · Hard · WTA #5</div>
+          <div class="trail-icons">
+            <span class="tag">🕒 6–7h</span>
+            <span class="tag">🌤 OK</span>
+            <span class="tag">🧊 Snowy</span>
+            <span class="tag">📄 Report 6d</span>
+            <span class="tag">🎫 NW Forest Pass</span>
+          </div>
+        </div>
+        <div class="trail-actions">
+          <button class="btn ghost score" data-score="Filter 80 · Recency 75 · Weather 74 · Conditions 62 · Rating 86">Score ⓘ</button>
+          <a class="btn primary" href="trail.html">Details</a>
+        </div>
+      </article>
+
+      <article class="trail-card">
+        <div class="rank">4</div>
+        <div class="thumb fourth"></div>
+        <div class="trail-main">
+          <div class="trail-title">Kendall Katwalk</div>
+          <div class="trail-meta">★ 4.6 · 12.2 mi · 3,300 ft · Hard · WTA #4</div>
+          <div class="trail-icons">
+            <span class="tag">🕒 7–8h</span>
+            <span class="tag">⛅ Mixed</span>
+            <span class="tag">🧊 Snowy</span>
+            <span class="tag">📄 Report 8d</span>
+            <span class="tag">🎫 NW Forest Pass</span>
+          </div>
+        </div>
+        <div class="trail-actions">
+          <button class="btn ghost score" data-score="Filter 76 · Recency 72 · Weather 70 · Conditions 58 · Rating 82">Score ⓘ</button>
+          <a class="btn primary" href="trail.html">Details</a>
+        </div>
+      </article>
+
+      <article class="trail-card">
+        <div class="rank">5</div>
+        <div class="thumb fifth"></div>
+        <div class="trail-main">
+          <div class="trail-title">Lake 22</div>
+          <div class="trail-meta">★ 4.7 · 5.4 mi · 1,350 ft · Moderate · WTA #2</div>
+          <div class="trail-icons">
+            <span class="tag">🕒 3–4h</span>
+            <span class="tag">🌧 Light</span>
+            <span class="tag">✅ Good</span>
+            <span class="tag">📄 Report 2d</span>
+            <span class="tag">🎫 NW Forest Pass</span>
+          </div>
+        </div>
+        <div class="trail-actions">
+          <button class="btn ghost score" data-score="Filter 90 · Recency 95 · Weather 60 · Conditions 88 · Rating 90">Score ⓘ</button>
+          <a class="btn primary" href="trail.html">Details</a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <div class="tooltip" id="scoreTooltip"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
